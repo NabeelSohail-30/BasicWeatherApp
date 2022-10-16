@@ -10,7 +10,7 @@ let getWeather = () => {
 
 
             document.querySelector("#main-data").innerHTML = `${response.data.name} ${response.data.main.temp}<sup>o</sup>C`;
-            document.querySelector("#icon").src = `http://openweathermap.org/img/wn/${response.data.weather[0].weathericon}.png`;
+            document.querySelector("#icon").src = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
             document.querySelector("#weather").value = response.data.weather[0].main;
             document.querySelector("#weatherDesc").value = response.data.weather[0].description;
             document.querySelector("#temp").value = response.data.main.temp;
