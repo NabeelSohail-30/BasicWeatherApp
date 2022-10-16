@@ -13,162 +13,164 @@
 
 <body>
 
-    <div class="main_panel">
-        <form action="" onSubmit="return false">
+    <main>
+        <div class="main_panel">
+            <form action="" onSubmit="return false">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="">Location</label>
+                                <input type="text" id="city" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <button type="submit" onClick="getWeather();">Get Weather</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="main">
+            <span id="main-data"></span>
+            <img src="" alt="icon" id="icon">
+        </div>
+
+        <div class="details">
             <div class="container">
                 <div class="row">
-                    <div class="col">
-                        <div class="form-group">
-                            <label for="">Location</label>
-                            <input type="text" id="city" class="form-control">
+                    <div class="col-lg-4 col-md-4 col-sm-12 box">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="">Temperature</label>
+                                        <input type="text" id="temp" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="">Feels Like</label>
+                                        <input type="text" id="feelsLike" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="">Max Temperature</label>
+                                        <input type="text" id="maxTemp" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="">Min Temperature</label>
+                                        <input type="text" id="minTemp" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-12 box">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="">Weather</label>
+                                        <input type="text" id="weather" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="">Weather Description</label>
+                                        <input type="text" id="weatherDesc" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="">Pressure</label>
+                                        <input type="text" id="pressure" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="">Humidity</label>
+                                        <input type="text" id="humidity" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-12 box">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="">Visibilty</label>
+                                        <input type="text" id="visibility" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="">Wind Speed</label>
+                                        <input type="text" id="windSpeed" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="">Wind Direction</label>
+                                        <input type="text" id="windDirection" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="">Cloudiness</label>
+                                        <input type="text" id="cloud" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col d-flex justify-content-center">
-                        <button type="submit" onClick="getWeather();">Get Weather</button>
-                    </div>
-                </div>
             </div>
-        </form>
-    </div>
-
-    <div class="main">
-        <span id="main-data"></span>
-        <img src="" alt="icon" id="icon">
-    </div>
-
-    <div class="details">
-        <div class="container">
-            <div class="row">
-                <div class="col-4 box">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="">Temperature</label>
-                                    <input type="text" id="temp" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="">Feels Like</label>
-                                    <input type="text" id="feelsLike" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="">Max Temperature</label>
-                                    <input type="text" id="maxTemp" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="">Min Temperature</label>
-                                    <input type="text" id="minTemp" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-4 box">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="">Weather</label>
-                                    <input type="text" id="weather" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="">Weather Description</label>
-                                    <input type="text" id="weatherDesc" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="">Pressure</label>
-                                    <input type="text" id="pressure" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="">Humidity</label>
-                                    <input type="text" id="humidity" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-4 box">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="">Visibilty</label>
-                                    <input type="text" id="visibility" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="">Wind Speed</label>
-                                    <input type="text" id="windSpeed" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="">Wind Direction</label>
-                                    <input type="text" id="windDirection" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="">Cloudiness</label>
-                                    <input type="text" id="cloud" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
-    </div>
 
-    <footer>
-        Developed by Nabeel Sohail &copy all rights reserved
-    </footer>
+        <footer>
+            Developed by Nabeel Sohail &copy all rights reserved
+        </footer>
+    </main>
 
     <script src="app.js" type="text/javascript" defer></script>
     <script src="https://unpkg.com/axios@1.1.3/dist/axios.min.js" defer></script>
