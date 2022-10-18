@@ -15,16 +15,16 @@ let getWeather = () => {
             document.querySelector("#icon").src = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
             document.querySelector("#weather").value = response.data.weather[0].main;
             document.querySelector("#weatherDesc").value = response.data.weather[0].description;
-            document.querySelector("#temp").value = response.data.main.temp;
-            document.querySelector("#feelsLike").value = response.data.main.feels_like;
-            document.querySelector("#maxTemp").value = response.data.main.temp_max;
-            document.querySelector("#minTemp").value = response.data.main.temp_min;
-            document.querySelector("#pressure").value = response.data.main.pressure;
-            document.querySelector("#humidity").value = response.data.main.humidity;
-            document.querySelector("#visibility").value = response.data.visibility;
-            document.querySelector("#windSpeed").value = response.data.wind.speed;
-            document.querySelector("#windDirection").value = response.data.wind.deg;
-            document.querySelector("#cloud").value = response.data.clouds.all;
+            document.querySelector("#temp").value = response.data.main.temp + 'C';
+            document.querySelector("#feelsLike").value = response.data.main.feels_like + 'C';
+            document.querySelector("#maxTemp").value = response.data.main.temp_max + 'C';
+            document.querySelector("#minTemp").value = response.data.main.temp_min + 'C';
+            document.querySelector("#pressure").value = response.data.main.pressure + '%';
+            document.querySelector("#humidity").value = response.data.main.humidity + '%';
+            document.querySelector("#visibility").value = response.data.visibility + '%';
+            document.querySelector("#windSpeed").value = response.data.wind.speed + ' mph';
+            document.querySelector("#windDirection").value = response.data.wind.deg + ' degree';
+            document.querySelector("#cloud").value = response.data.clouds.all + '%';
 
 
             let weatherMain = response.data.weather[0].main;
