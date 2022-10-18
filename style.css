@@ -67,17 +67,63 @@ button:hover {
 }
 
 footer {
-    margin-top: 40px;
-    background-color: rgba(245, 245, 245, 0.6);
-    color: darkblue;
-    text-align: center;
-    margin-bottom: 0px;
-    height: 40px;
+    background-color: #0f4ca7;
+    color: #E7E5DF;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 20px;
+    height: fit-content;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    position: relative;
+    width: 100%;
+    bottom: 0px;
+    margin-top: 60px;
+}
+
+.watermark {
+    font-size: 16px;
     font-weight: bold;
+    text-align: center;
+}
+
+.copyright {
+    font-size: 14px;
+    text-align: center;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.portfolio a {
+    font-size: 14px;
+    text-align: center;
+    font-weight: 400;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #E7E5DF;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.media-icons {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.media-icons li {
+    margin: 0px 10px;
+}
+
+.media-icons li a img {
+    width: 30px;
+    height: 30px;
+}
+
+hr {
+    width: 100vh;
+    margin: auto;
 }
 
 /* Extra small devices (phones, 600px and down) */
