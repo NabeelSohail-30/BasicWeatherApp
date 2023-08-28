@@ -1,7 +1,14 @@
-let getWeather = () => {
+let getWeather = (name, lat, lon) => {
 
-    let cityName = document.querySelector("#city").value;
-    document.querySelector(".main").style.display = "block";
+    let cityName = "";
+
+    if (name === undefined) {
+        cityName = document.querySelector("#city").value;
+    } else {
+        cityName = name;
+    }
+
+    console.log(cityName);
 
     let body = document.querySelector("body");
 
@@ -10,22 +17,17 @@ let getWeather = () => {
             console.log("response is success");
             console.log(response.data);
 
+            const currentWeather = `<div class="details" >
+                                    <h2>${cityName} ( ${response.data.weather[0].description} )</h2>
+                                    <h6>Temperature: ${response.data.main.temp}°C</h6>
+                                    <h6>Feels Like: ${response.data.main.feels_like}°C</h6>
+                                    <h6>Max Temperature: ${response.data.main.temp_max}°C</h6>
+                                    <h6>Min Temperature: ${response.data.main.temp_min}°C</h6>
+                                    <h6>Wind: ${response.data.wind.speed} M/S</h6>
+                                    <h6>Humidity: ${response.data.main.humidity}%</h6>
+                                    </div>`;
 
-            document.querySelector("#main-data").innerHTML = `${response.data.name} ${response.data.main.temp}<sup>o</sup>C`;
-            document.querySelector("#icon").src = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
-            document.querySelector("#weather").value = response.data.weather[0].main;
-            document.querySelector("#weatherDesc").value = response.data.weather[0].description;
-            document.querySelector("#temp").value = response.data.main.temp + 'C';
-            document.querySelector("#feelsLike").value = response.data.main.feels_like + 'C';
-            document.querySelector("#maxTemp").value = response.data.main.temp_max + 'C';
-            document.querySelector("#minTemp").value = response.data.main.temp_min + 'C';
-            document.querySelector("#pressure").value = response.data.main.pressure + '%';
-            document.querySelector("#humidity").value = response.data.main.humidity + '%';
-            document.querySelector("#visibility").value = response.data.visibility + '%';
-            document.querySelector("#windSpeed").value = response.data.wind.speed + ' mph';
-            document.querySelector("#windDirection").value = response.data.wind.deg + ' degree';
-            document.querySelector("#cloud").value = response.data.clouds.all + '%';
-
+            document.querySelector('.current-weather').innerHTML = currentWeather;
 
             let weatherMain = response.data.weather[0].main;
 
@@ -138,4 +140,26 @@ let getWeather = () => {
         .catch(function (error) {
             console.log(error);
         })
+}
+
+function getCityCoordinates() {
+    navigator.geolocation.getCurrentPosition(
+        position => {
+            const { latitude, longitude } = position.coords; // Get coordinates of user location
+            // Get city name from coordinates using reverse geocoding API
+            const API_URL = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=6a6cb112b4746fd1d963422db62a0782&q`;
+            fetch(API_URL).then(response => response.json()).then(data => {
+                const { name } = data[0];
+                getWeatherDetails(name, latitude, longitude);
+            }).catch(() => {
+                alert("An error occurred while fetching the city name!");
+            });
+        },
+        error => { // Show alert if user denied the location permission
+            if (error.code === error.PERMISSION_DENIED) {
+                alert("Geolocation request denied. Please reset location permission to grant access again.");
+            } else {
+                alert("Geolocation request error. Please reset location permission.");
+            }
+        });
 }
