@@ -35,14 +35,78 @@ header {
 .left {
     float: left;
     background-color: #0f4ca7;
-    color: #E7E5DF;
     margin: 40px 0px;
     padding: 20px;
     width: 25%;
     height: max-content;
 }
 
+.right {
+    float: right;
+    margin: 20px 0px;
+    padding: 20px;
+    width: 75%;
+}
 
+.current-weather {
+    color: #fff;
+    background: #5372F0;
+    border-radius: 5px;
+    padding: 20px 70px 20px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.current-weather h2 {
+    font-weight: 700;
+    font-size: 1.7rem;
+}
+
+.weather-data h6 {
+    margin-top: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.current-weather .icon {
+    text-align: center;
+}
+
+.current-weather .icon img {
+    max-width: 120px;
+    margin-top: -15px;
+}
+
+.current-weather .icon h6 {
+    margin-top: -10px;
+    text-transform: capitalize;
+}
+
+.forcast {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.forcast .weather-card {
+    background: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    padding: 18px 16px;
+    width: calc(100% / 3 - 20px);
+}
+
+.weather-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.weather-card img {
+    max-width: 70px;
+    margin: 5px 0 -12px 0;
+}
 
 footer {
     background-color: #0f4ca7;
