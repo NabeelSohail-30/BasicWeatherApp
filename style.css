@@ -20,6 +20,30 @@ main {
     height: 100vh;
 }
 
+header {
+    background-color: #0f4ca7;
+    color: #E7E5DF;
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+    position: relative;
+    width: 100%;
+    padding: 20px 0px;
+    text-align: center;
+}
+
+.left {
+    float: left;
+    background-color: #0f4ca7;
+    color: #E7E5DF;
+    margin: 40px 0px;
+    padding: 20px;
+    width: 25%;
+    height: max-content;
+}
+
+
+
 footer {
     background-color: #0f4ca7;
     color: #E7E5DF;
