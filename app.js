@@ -127,7 +127,37 @@ const updateForcast = (forcastData) => {
     const data = forcastData.list;
 
     data.forEach(element => {
-        console.log(element);
+        // console.log(element);
+        const forecastDate = new Date(element.dt * 1000); // Convert UNIX timestamp to JavaScript Date object
+        const forecastDay = forecastDate.toLocaleDateString('en-US', { weekday: 'long' }); // Get day of the week
+        // console.log('Date: ' + forecastDate)
+        // console.log('Day: ' + forecastDay)
+        // console.log('Hours: ' + forecastDate.getHours())
+
+        if (forecastDate.getHours() === 9) {
+            console.log('9am')
+            // const weatherCard = document.createElement('div');
+            // weatherCard.classList.add('weather-card');
+
+            // const dayHeader = document.createElement('h6');
+            // dayHeader.textContent = `Day ${forecastDate.getDate()}`;
+
+            // const tempElement = document.createElement('h6');
+            // tempElement.textContent = `Temperature: ${element.main.temp}°C`;
+
+            // const windElement = document.createElement('h6');
+            // windElement.textContent = `Wind: ${element.wind.speed} M/S`;
+
+            // const humidityElement = document.createElement('h6');
+            // humidityElement.textContent = `Humidity: ${element.main.humidity}%`;
+
+            // weatherCard.appendChild(dayHeader);
+            // weatherCard.appendChild(tempElement);
+            // weatherCard.appendChild(windElement);
+            // weatherCard.appendChild(humidityElement);
+
+            // forecastContainer.appendChild(weatherCard);
+        }
     });
 };
 
