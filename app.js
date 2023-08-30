@@ -130,17 +130,18 @@ const updateForcast = (forcastData) => {
         // console.log(element);
         const forecastDate = new Date(element.dt * 1000); // Convert UNIX timestamp to JavaScript Date object
         const forecastDay = forecastDate.toLocaleDateString('en-US', { weekday: 'long' }); // Get day of the week
-        // console.log('Date: ' + forecastDate)
-        // console.log('Day: ' + forecastDay)
-        // console.log('Hours: ' + forecastDate.getHours())
 
+        let day = 1;
         if (forecastDate.getHours() === 14) {
             console.log(element);
             const weatherCard = document.createElement('div');
             weatherCard.classList.add('weather-card');
 
-            const dayHeader = document.createElement('h6');
-            dayHeader.textContent = `Day ${forecastDate.getDate()}`;
+            const dayHeader = document.createElement('h3');
+            dayHeader.textContent = `Day ${day}`;
+
+            const dateElement = document.createElement('h6');
+            dateElement.textContent = `${forecastDay} - ${forecastDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`;
 
             const tempElement = document.createElement('h6');
             tempElement.textContent = `Temperature: ${element.main.temp}°C`;
@@ -152,12 +153,14 @@ const updateForcast = (forcastData) => {
             humidityElement.textContent = `Humidity: ${element.main.humidity}%`;
 
             weatherCard.appendChild(dayHeader);
+            weatherCard.appendChild(dateElement);
             weatherCard.appendChild(tempElement);
             weatherCard.appendChild(windElement);
             weatherCard.appendChild(humidityElement);
 
-            forecastContainer.appendChild(weatherCard);
+            document.querySelector('.forecast').appendChild(weatherCard);
         }
+        day = day + 1;
     });
 };
 

@@ -82,7 +82,7 @@ header {
     text-transform: capitalize;
 }
 
-.forcast {
+.forecast {
     margin-top: 20px;
     display: flex;
     justify-content: flex-start;
@@ -90,7 +90,7 @@ header {
     gap: 20px;
 }
 
-.forcast .weather-card {
+.forecast .weather-card {
     background: #fff;
     border-radius: 5px;
     padding: 20px;
@@ -100,7 +100,7 @@ header {
 
 .weather-card h3 {
     font-size: 1.3rem;
-    font-weight: 600;
+    font-weight: bold;
 }
 
 .weather-card img {
