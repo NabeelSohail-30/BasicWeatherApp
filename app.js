@@ -89,6 +89,7 @@ const fetchWeatherData = async (latitude, longitude) => {
 };
 
 const updateWeatherDetails = (weatherData) => {
+    console.log(weatherData);
     const cityName = weatherData.name;
     const description = weatherData.weather[0].description;
     const main = weatherData.main;
