@@ -134,29 +134,29 @@ const updateForcast = (forcastData) => {
         // console.log('Day: ' + forecastDay)
         // console.log('Hours: ' + forecastDate.getHours())
 
-        if (forecastDate.getHours() === 9) {
-            console.log('9am')
-            // const weatherCard = document.createElement('div');
-            // weatherCard.classList.add('weather-card');
+        if (forecastDate.getHours() === 14) {
+            console.log(element);
+            const weatherCard = document.createElement('div');
+            weatherCard.classList.add('weather-card');
 
-            // const dayHeader = document.createElement('h6');
-            // dayHeader.textContent = `Day ${forecastDate.getDate()}`;
+            const dayHeader = document.createElement('h6');
+            dayHeader.textContent = `Day ${forecastDate.getDate()}`;
 
-            // const tempElement = document.createElement('h6');
-            // tempElement.textContent = `Temperature: ${element.main.temp}°C`;
+            const tempElement = document.createElement('h6');
+            tempElement.textContent = `Temperature: ${element.main.temp}°C`;
 
-            // const windElement = document.createElement('h6');
-            // windElement.textContent = `Wind: ${element.wind.speed} M/S`;
+            const windElement = document.createElement('h6');
+            windElement.textContent = `Wind: ${element.wind.speed} M/S`;
 
-            // const humidityElement = document.createElement('h6');
-            // humidityElement.textContent = `Humidity: ${element.main.humidity}%`;
+            const humidityElement = document.createElement('h6');
+            humidityElement.textContent = `Humidity: ${element.main.humidity}%`;
 
-            // weatherCard.appendChild(dayHeader);
-            // weatherCard.appendChild(tempElement);
-            // weatherCard.appendChild(windElement);
-            // weatherCard.appendChild(humidityElement);
+            weatherCard.appendChild(dayHeader);
+            weatherCard.appendChild(tempElement);
+            weatherCard.appendChild(windElement);
+            weatherCard.appendChild(humidityElement);
 
-            // forecastContainer.appendChild(weatherCard);
+            forecastContainer.appendChild(weatherCard);
         }
     });
 };
