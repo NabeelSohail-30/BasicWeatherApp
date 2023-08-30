@@ -52,13 +52,16 @@ const weatherBackgrounds = {
 };
 
 const apiKey = '6a6cb112b4746fd1d963422db62a0782';
+const apiUrl = 'https://api.openweathermap.org/data/2.5/';
 
 const getWeather = async () => {
     try {
         const body = document.querySelector("body");
         const location = await getCurrentLocation();
         const weatherData = await fetchWeatherData(location.latitude, location.longitude);
+        const forcastData = await fetchForcastData(location.latitude, location.longitude);
         updateWeatherDetails(weatherData);
+        updateForcast(forcastData);
         updateBackground(weatherData.weather[0].main, weatherData.weather[0].id);
     } catch (error) {
         console.error("An error occurred:", error);
@@ -80,7 +83,16 @@ const getCurrentLocation = () => {
 };
 
 const fetchWeatherData = async (latitude, longitude) => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
+    const url = `${apiUrl}weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error("Failed to fetch weather data");
+    }
+    return await response.json();
+};
+
+const fetchForcastData = async (latitude, longitude) => {
+    const url = `${apiUrl}forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&exclude=hourly,minutely&units=metric`;
     const response = await fetch(url);
     if (!response.ok) {
         throw new Error("Failed to fetch weather data");
@@ -107,6 +119,16 @@ const updateWeatherDetails = (weatherData) => {
         </div>`;
 
     document.querySelector('.current-weather').innerHTML = currentWeather;
+};
+
+const updateForcast = (forcastData) => {
+    // console.log('forcastData', forcastData.list);
+
+    const data = forcastData.list;
+
+    data.forEach(element => {
+        console.log(element);
+    });
 };
 
 const updateBackground = (weatherMain, weatherId) => {
