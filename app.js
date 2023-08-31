@@ -57,9 +57,21 @@ const apiUrl = 'https://api.openweathermap.org/data/2.5/';
 const getWeather = async () => {
     try {
         const body = document.querySelector("body");
-        const location = await getCurrentLocation();
+        const city = document.querySelector("#city").value;
+
+        let location;
+        if (city) {
+            const cityCoordinates = await getCoordinatesForCity(city);
+            location = { latitude: cityCoordinates.lat, longitude: cityCoordinates.lon };
+        } else {
+            location = await getCurrentLocation();
+        }
+
         const weatherData = await fetchWeatherData(location.latitude, location.longitude);
         const forcastData = await fetchForcastData(location.latitude, location.longitude);
+
+        document.querySelector('#city').value = '';
+
         updateWeatherDetails(weatherData);
         updateForcast(forcastData);
         updateBackground(weatherData.weather[0].main, weatherData.weather[0].id);
@@ -67,6 +79,27 @@ const getWeather = async () => {
         console.error("An error occurred:", error);
     }
 };
+
+const getCoordinatesForCity = async (city) => {
+    const geocodingApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric`;
+
+    try {
+        const response = await fetch(geocodingApiUrl);
+        if (response.ok) {
+            const data = await response.json();
+            const coordinates = {
+                lat: data.coord.lat,
+                lon: data.coord.lon
+            };
+            return coordinates;
+        } else {
+            throw new Error('City not found');
+        }
+    } catch (error) {
+        throw error;
+    }
+};
+
 
 const getCurrentLocation = () => {
     return new Promise((resolve, reject) => {
@@ -126,12 +159,12 @@ const updateForcast = (forcastData) => {
 
     const data = forcastData.list;
 
+    let day = 1;
     data.forEach(element => {
         // console.log(element);
         const forecastDate = new Date(element.dt * 1000); // Convert UNIX timestamp to JavaScript Date object
         const forecastDay = forecastDate.toLocaleDateString('en-US', { weekday: 'long' }); // Get day of the week
 
-        let day = 1;
         if (forecastDate.getHours() === 14) {
             console.log(element);
             const weatherCard = document.createElement('div');
@@ -159,8 +192,8 @@ const updateForcast = (forcastData) => {
             weatherCard.appendChild(humidityElement);
 
             document.querySelector('.forecast').appendChild(weatherCard);
+            day = day + 1;
         }
-        day = day + 1;
     });
 };
 
