@@ -32,34 +32,63 @@ header {
     text-align: center;
 }
 
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 40px 20px;
+    height: auto;
+}
+
 .left {
     float: left;
     background-color: #0f4ca7;
-    margin: 40px 0px;
     padding: 20px;
     width: 25%;
-    height: max-content;
+    height: fit-content;
+    border-radius: 5px;
+    margin: 20px 10px;
 }
 
 .right {
     float: right;
-    margin: 20px 0px;
+    margin: 20px 10px;
     padding: 20px;
-    width: 75%;
+    width: 70%;
 }
 
 .current-weather {
     color: #fff;
     background: #5372F0;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 20px 70px 20px 20px;
     display: flex;
     justify-content: space-between;
+    width: 80%;
+    margin: auto;
 }
 
 .current-weather h2 {
     font-weight: 700;
     font-size: 1.7rem;
+}
+
+.weather-img {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.weather-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.weather-icon img {
+    width: 180px;
+    height: 180px;
 }
 
 .weather-data h6 {
@@ -92,7 +121,7 @@ header {
 
 .forecast .weather-card {
     background: #fff;
-    border-radius: 5px;
+    border-radius: 24px;
     padding: 20px;
     padding: 18px 16px;
     width: calc(100% / 3 - 20px);
@@ -103,10 +132,20 @@ header {
     font-weight: bold;
 }
 
-.weather-card img {
-    max-width: 70px;
-    margin: 5px 0 -12px 0;
+.search-history {
+    margin-top: 20px;
+    max-height: 400px;
+    overflow-y: auto;
 }
+
+.history-item {
+    background: #fff;
+    border-radius: 5px;
+    padding: 14px 16px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
 
 footer {
     background-color: #0f4ca7;
@@ -115,11 +154,11 @@ footer {
     justify-content: center;
     height: fit-content;
     padding-top: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 0px;
     position: relative;
     width: 100%;
     bottom: 0px;
-    margin-top: 60px;
+    margin-top: 30px;
 }
 
 .watermark {
@@ -132,26 +171,26 @@ footer {
     font-size: 14px;
     text-align: center;
     font-weight: 400;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .portfolio a {
     font-size: 14px;
     text-align: center;
     font-weight: 400;
-    margin-top: 20px;
+    margin-top: 10px;
     text-decoration: none;
     color: #E7E5DF;
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .media-icons {
     list-style-type: none;
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .media-icons li {

@@ -22,40 +22,49 @@
         </div>
     </header>
 
-    <div class="left">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <input type="text" id="city" class="form-control" placeholder="Enter City Name">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mt-3">
-                <div class="form-group">
+    <main>
+        <div class="left">
+            <div class="container-fluid">
+                <div class="row">
                     <div class="col">
-                        <button id="submit" class="btn btn-primary form-control" onclick="getWeather();">Submit</button>
+                        <div class="form-group">
+                            <input type="text" id="city" class="form-control" placeholder="Enter City Name">
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="row mt-3">
-                <div class="col">
+                <div class="row mt-3">
                     <div class="form-group">
-                        <button class="btn btn-secondary form-control" onclick="getWeather();">Use Current
-                            Location</button>
+                        <div class="col">
+                            <button id="search" class="btn btn-primary form-control">Submit</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col">
+                        <div class="form-group">
+                            <button id="current" class="btn btn-secondary form-control" onclick="getWeather();">Use
+                                Current
+                                Location</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="search-history">
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="right">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col">
-                    <div class="current-weather">
+        <div class="right">
+            <div class="container-fluid">
+                <div class="row current-weather">
+                    <div class="col-8 data">
                         <div class="details">
                             <h2>_______ ( ______ )</h2>
                             <h6>Temperature: __°C</h6>
@@ -66,18 +75,23 @@
                             <h6>Humidity: __%</h6>
                         </div>
                     </div>
+                    <div class="col-4 weather-img">
+                        <div class="weather-icon">
+
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col">
-                    <div class="forecast">
+                <div class="row">
+                    <div class="col">
+                        <div class="forecast">
 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
     <footer>
         <div class="container-fluid">
