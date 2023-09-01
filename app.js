@@ -74,7 +74,7 @@ const getWeather = async () => {
 
         updateWeatherDetails(weatherData);
         updateForcast(forcastData);
-        updateBackground(weatherData.weather[0].main, weatherData.weather[0].id);
+        // updateBackground(weatherData.weather[0].main, weatherData.weather[0].id);
 
         if (city) {
             updateSearchHistory(city, weatherData.main.temp, weatherData.weather[0].description);
