@@ -75,9 +75,34 @@ const getWeather = async () => {
         updateWeatherDetails(weatherData);
         updateForcast(forcastData);
         updateBackground(weatherData.weather[0].main, weatherData.weather[0].id);
+
+        if (city) {
+            updateSearchHistory(city, weatherData.main.temp, weatherData.weather[0].description);
+        }
+        else {
+            updateSearchHistory(weatherData.name, weatherData.main.temp, weatherData.weather[0].description);
+        }
+
     } catch (error) {
         console.error("An error occurred:", error);
     }
+};
+
+const updateSearchHistory = (city, temperature, description) => {
+    const searchHistory = document.querySelector('.search-history');
+    const historyItem = document.createElement('div');
+    historyItem.classList.add('history-item');
+
+    const cityElement = document.createElement('h4');
+    cityElement.textContent = city;
+
+    const tempElement = document.createElement('h6');
+    tempElement.textContent = `${temperature}°C - ${description} `;
+
+    historyItem.appendChild(cityElement);
+    historyItem.appendChild(tempElement);
+
+    searchHistory.appendChild(historyItem);
 };
 
 const getCoordinatesForCity = async (city) => {
@@ -151,12 +176,19 @@ const updateWeatherDetails = (weatherData) => {
             <h6>Humidity: ${main.humidity}%</h6>
         </div>`;
 
-    document.querySelector('.current-weather').innerHTML = currentWeather;
+    document.querySelector('.data').innerHTML = currentWeather;
+
+    const weatherIcon = document.createElement('img');
+    weatherIcon.src = `http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`;
+    weatherIcon.alt = weatherData.weather[0].description;
+    weatherIcon.title = weatherData.weather[0].description;
+
+    document.querySelector('.weather-icon').innerHTML = weatherIcon.outerHTML;
 };
 
 const updateForcast = (forcastData) => {
     // console.log('forcastData', forcastData.list);
-
+    document.querySelector('.forecast').innerHTML = '';
     const data = forcastData.list;
 
     let day = 1;
@@ -211,4 +243,11 @@ const updateBackground = (weatherMain, weatherId) => {
     document.querySelector("body").style.backgroundImage = imageUrl;
 };
 
-getWeather();
+document.querySelector('#search').addEventListener('click', getWeather);
+document.querySelector('#current').addEventListener('click', getWeather);
+document.querySelector('#city').addEventListener('keyup', (event) => {
+    if (event.key === 'Enter') {
+        getWeather();
+    }
+});
+document.getElementsByTagName('body')[0].onload = getWeather();
