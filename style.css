@@ -6,7 +6,7 @@
 }
 
 body {
-    background-image: url("Images/base.jpg");
+    background-clip: url("Videos/base.mp4");
     background-position: center;
     background-repeat: repeat;
     background-size: cover;
@@ -14,6 +14,18 @@ body {
     font-weight: 500;
     font-size: 18px;
     height: 100vh;
+}
+
+#bg-clip {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
 }
 
 main {
